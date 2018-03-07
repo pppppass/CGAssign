@@ -1,0 +1,13 @@
+# Binary files
+main
+
+# Configuration files
+.vscode/
+
+# Temporary files
+*~
+
+# CMake files
+CMakeCache.txt
+cmake_install.cmake
+CMakeFiles/
