@@ -2,7 +2,7 @@
 
 This is the repository of pppppass' assignment of *Computer Graphics* in Spring 2018 @ PKU.
 
-This is a Git repository and full commit logs can be retrieved. GnuPG signature are also included to perform verification.
+This is a Git repository and full commit logs can be retrieved. GnuPG signature are also included to perform verification except for some beginning commits.
 
 ## Table of Contents
 
