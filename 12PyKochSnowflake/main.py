@@ -35,7 +35,7 @@ def display():
     
     glClear(GL_COLOR_BUFFER_BIT)
 
-    s1 = numpy.array([0.5, 0.0, 0.0])
+    s1 = numpy.array([0.8, 0.0, 0.0])
     s2 = omega.dot(s1)
     s3 = omega.dot(s2)
 

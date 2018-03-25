@@ -9,6 +9,8 @@ from OpenGL.GLUT import *
 
 import numpy
 
+random.seed(2)
+
 parser = argparse.ArgumentParser(description="Draw a maze of given size")
 parser.add_argument("n", metavar="N", type=int, help="Size in columns")
 parser.add_argument("m", metavar="M", type=int, help="Size in rows")

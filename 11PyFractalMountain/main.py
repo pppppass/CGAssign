@@ -26,7 +26,7 @@ def fractal(a, b, c, rem=8):
 
         glEnd()
     else:
-        dd, de, df = ((numpy.random.rand(3) - 0.5) * 0.0015 * 2.**rem for i in range(3))
+        dd, de, df = ((numpy.random.rand(3) - 0.5) * 0.003 * 1.8**rem for i in range(3))
 
         fractal(a, (a + b) / 2. + df, (a + c) / 2. + de, rem=rem-1)
         fractal((b + a) / 2. + df, b, (b + c) / 2. + dd, rem=rem-1)
