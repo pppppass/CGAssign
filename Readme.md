@@ -1,6 +1,6 @@
-# Assignment of Computer Graphics - Spring 2018 @ PKU
+# Assignment of Computer Graphics - Spring 2018 @PKU
 
-This is the repository of pppppass' assignment of *Computer Graphics* in Spring 2018 @ PKU.
+This is the repository of pppppass' assignment of *Computer Graphics* in Spring 2018 @PKU.
 
 This is a Git repository and full commit logs can be retrieved. GnuPG signature are also included to perform verification except for some beginning commits.
 
@@ -19,7 +19,17 @@ For Homework 1:
 
 ## Guide to Python source files
 
+The Python source files are all directly executable. That is, they can be directly invoked by `./main.py`.
 
+To establish a environment, please follow the following instructions:
+1. Install a Anaconda from [Official Website](https://www.anaconda.com/download/). The direct download link is [this](https://repo.continuum.io/archive/Anaconda3-5.1.0-Linux-x86_64.sh).
+2. Create a new Anaconda environment by `conda create -n graphics`.
+3. Activate the environment by `source path/to/anaconda/bin/activate graphics`.
+4. Install packages by `conda install python numpy scipy pip`.
+5. Install packages by `conda install freeglut`.
+6. Install packages by `pip install PyOpenGl PyOpenGL-accelerate`.
+7. Change the directory and directly run the Python programs by `./main.py`.
+If an Anaconda environment has already been established, the first two steps can be left out.
 
 ## Guide to C++ source files
 

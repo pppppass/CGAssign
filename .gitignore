@@ -7,6 +7,9 @@ main
 # Temporary files
 *~
 
+# Intentionally left out files
+_*
+
 # CMake files
 CMakeCache.txt
 cmake_install.cmake
