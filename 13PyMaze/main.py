@@ -131,7 +131,7 @@ glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB)
 
 glutInitWindowSize(800, 800)
 
-glutCreateWindow("Python OpenGL Framework")
+glutCreateWindow("Python Maze")
 
 glutDisplayFunc(display)
 
