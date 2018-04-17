@@ -1,0 +1,6 @@
+[submodule "TeXTemplate"]
+	path = TeXTemplate
+	url = git@github.com:pppppass/TeXTemplate
+[submodule "textmpls"]
+	path = textmpls
+	url = git@github.com:pppppass/textmpls

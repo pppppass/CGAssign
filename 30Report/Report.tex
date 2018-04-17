@@ -1,0 +1,128 @@
+% !TeX encoding = UTF-8
+% !TeX program = LuaLaTeX
+% !TeX spellcheck = en_US
+
+% Author : Zhihan Li
+% Description : Report of Assignment 3
+
+\documentclass[english, nochinese]{../textmpls/pkupaper}
+
+\usepackage[paper]{../textmpls/def}
+\usepackage{lipsum}
+
+\newcommand{\cuniversity}{Peking University}
+\newcommand{\cthesisname}{Computer Graphics}
+\newcommand{\titlemark}{Report of Assignment 3}
+
+\DeclareRobustCommand{\authoring}%
+{%
+\begin{tabular}{c}%
+Zhihan Li \\%
+1600010653%
+\end{tabular}%
+}
+
+\title{\titlemark}
+\author{\authoring}
+
+\begin{document}
+
+\maketitle
+
+\begin{thmquestion}
+\ 
+\begin{thmanswer}
+Consider the shear matrix
+\begin{equation}
+\widetilde{\mathbf{S}} = \msbr{ 1 & u \\ 0 & 1 }
+\end{equation}
+first, where $ u = \cot \theta $. Using singular eigenvalue decomposition, we may obtain
+\begin{equation}
+\widetilde{\mathbf{S}} = \widetilde{\mathbf{P}} \widetilde{\mathbf{D}} \widetilde{\mathbf{Q}}^{\rmut},
+\end{equation}
+where $\widetilde{\mathbf{P}}$ and $\widetilde{\mathbf{Q}}$ are orthogonal and $\widetilde{\mathbf{D}}$ is non-negative diagonal. Explicitly, a choice for the matrices is
+\begin{align}
+\widetilde{\mathbf{P}} &= \left[\begin{matrix}- \frac{2}{\sqrt{\left(u + \sqrt{u^{2} + 4}\right)^{2} + 4}} & - \frac{u + \sqrt{u^{2} + 4}}{\sqrt{\left(u + \sqrt{u^{2} + 4}\right)^{2} + 4}}\\\frac{u + \sqrt{u^{2} + 4}}{\sqrt{\left(u + \sqrt{u^{2} + 4}\right)^{2} + 4}} & - \frac{2}{\sqrt{\left(u + \sqrt{u^{2} + 4}\right)^{2} + 4}}\end{matrix}\right], \\
+\widetilde{\mathbf{Q}} &= \left[\begin{matrix}- \frac{u + \sqrt{u^{2} + 4}}{\sqrt{\left(u + \sqrt{u^{2} + 4}\right)^{2} + 4}} & - \frac{2}{\sqrt{\left(u + \sqrt{u^{2} + 4}\right)^{2} + 4}}\\\frac{2}{\sqrt{\left(u + \sqrt{u^{2} + 4}\right)^{2} + 4}} & - \frac{u + \sqrt{u^{2} + 4}}{\sqrt{\left(u + \sqrt{u^{2} + 4}\right)^{2} + 4}}\end{matrix}\right], \\
+\widetilde{\mathbf{D}} &= \left[\begin{matrix}\frac{4 \sqrt{u^{2} + 4}}{\left(u + \sqrt{u^{2} + 4}\right)^{2} + 4} & 0\\0 & \frac{u^{3} + u^{2} \sqrt{u^{2} + 4} + 4 u + 2 \sqrt{u^{2} + 4}}{u^{2} + u \sqrt{u^{2} + 4} + 4}\end{matrix}\right],
+\end{align}
+where $ \det \widetilde{\mathbf{P}} = \det \widetilde{\mathbf{Q}} = 1 $. Because $\widetilde{\mathbf{P}}$ and $\widetilde{\mathbf{Q}}^{\rmut}$ are orthogonal with determinant $1$, therefore they represent rotations. Because $\widetilde{\mathbf{D}}$ is positive diagonal, therefore it stands for scaling transform. Consequently, the original scaling matrix can be decomposed into
+\begin{equation}
+\mathbf{S} = \msbr{ \widetilde{\mathbf{S}} & 0 & 0 \\ 0 & 1 & 0 \\ & & 1 } = \msbr{ \widetilde{\mathbf{P}} & 0 & 0 \\ 0 & 1 & 0 \\ & & 1 } \msbr{ \widetilde{\mathbf{D}} & 0 & 0 \\ 0 & 1 & 0 \\ & & 1 } \msbr{ \widetilde{\mathbf{Q}}^{\rmut} & 0 & 0 \\ 0 & 1 & 0 \\ & & 1 },
+\end{equation}
+where the last three matrices represent rotation, translation, rotation respectively. Symbolic verification can be seen in \verb"Problem1.ipynb".
+\end{thmanswer}
+\end{thmquestion}
+
+\begin{thmquestion}
+\
+\begin{thmanswer}
+The composed matrix is
+\begin{equation}
+\begin{split}
+\mathbf{R} &= \mathbf{R}_x \rbr{\theta_x} \mathbf{R}_y \rbr{\theta_y} \mathbf{R}_z \rbr{\theta_z} \\
+&= \msbr{ 1 & 0 & 0 & 0 \\ 0 & \cos \theta_x & -\sin \theta_x & 0 \\ 0 & \sin \theta_x & \cos \theta_x & 0 \\ & & & 1 } \msbr{ \cos \theta_y & 0 & \sin \theta_y & 0 \\ 0 & 1 & 0 & 0 \\ -\sin \theta_y & 0 & \cos \theta_y & 0 \\ & & & 1 } \msbr{ \cos \theta_z & -\sin \theta_z & 0 & 0 \\ \sin \theta_z & \cos \theta_z & 0 & 0 \\ 0 & 0 & 1 & 0 \\ & & & 1 } \\
+&= \msbr{ \cos \theta_y & 0 & \sin \theta_y & 0 \\ \sin \theta_x \sin \theta_y & \cos \theta_x & -\sin \theta_x \cos \theta_y & 0 \\ -\cos \theta_x \sin \theta_y & \sin \theta_x & \cos \theta_x \cos \theta_y & 0 \\ & & & 1 } \msbr{ \cos \theta_z & - \sin \theta_z & 0 & 0 \\ \sin \theta_z & \cos \theta_z & 0 & 0 \\ 0 & 0 & 1 & 0 \\ & & & 1 } \\
+&= \msbr{ \cos \theta_y \cos \theta_z & -\cos \theta_y \sin \theta_z & \sin \theta_y & 0 \\ \sin \theta_x \sin \theta_y \cos \theta_z + \cos \theta_x \sin \theta_z & -\sin \theta_x \sin \theta_y \sin \theta_z + \cos \theta_x \cos \theta_z & -\sin \theta_x \cos \theta_y & 0 \\ -\cos \theta_x \sin \theta_y \cos \theta_z + \sin \theta_x \sin \theta_z & \cos \theta_x \sin \theta_y \sin \theta_z + \sin \theta_x \cos \theta_z & \cos \theta_x \cos \theta_y & 0 \\ & & & 1 }.
+\end{split}
+\end{equation}
+\end{thmanswer}
+\end{thmquestion}
+
+\begin{thmquestion}
+\ 
+\begin{thmanswer}
+This is possible. For example, we try to devise translation matrix $\mathbf{T}'$, such that
+\begin{equation} \label{Eq:Equ}
+\mathbf{M} = \mathbf{T} \mathbf{R} \mathbf{S} = \mathbf{R} \mathbf{S} \mathbf{T}'.
+\end{equation}
+Assume
+\begin{gather}
+\mathbf{R} = \msbr{ \widetilde{\mathbf{R}} & 0 \\ & 1 }, \mathbf{S} = \msbr{ \widetilde{\mathbf{S}} & 0 \\ & 1 }, \\
+\mathbf{T} = \msbr{ \mathbf{I} & \mathbf{x} \\ & 1 }, \mathbf{T}' = \msbr{ \mathbf{I} & \mathbf{x}' \\ & 1}.
+\end{gather}
+From \eqref{Eq:Equ}, we deduce that
+\begin{equation}
+\msbr{ \widetilde{\mathbf{R}} \widetilde{\mathbf{S}} & \mathbf{x} \\ & 1 } = \msbr{ \widetilde{\mathbf{R}} \widetilde{\mathbf{S}} & \widetilde{\mathbf{R}} \widetilde{\mathbf{S}} \mathbf{x}' \\ & 1 }.
+\end{equation}
+Since $\mathbf{R}$ and $\mathbf{S}$ are invertible and so are $\widetilde{\mathbf{R}}$ and $\widetilde{\mathbf{S}}$, therefore if we let
+\begin{equation}
+\mathbf{x'} = \widetilde{\mathbf{S}}^{-1} \widetilde{\mathbf{R}}^{-1} \mathbf{x},
+\end{equation}
+then $\mathbf{T}'$ is a appropriate translation matrix and \eqref{Eq:Equ} is satisfied.
+
+In conclusion, different order of transformations (with some transformations modified) may yield the same result.
+\end{thmanswer}
+\end{thmquestion}
+
+\begin{thmquestion}
+\
+\begin{thmanswer}
+Quaternions of the two rotations are
+\begin{align}
+q_x &= \frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2} \si, \\
+q_y &= \frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2} \sj
+\end{align}
+respectively. Therefore,
+\begin{equation}
+\begin{split}
+q_x q_y &= \rbr{ \frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2} \si } \rbr{ \frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2} \sj } \\
+&= \frac{1}{2} + \frac{1}{2} \si + \frac{1}{2} \sj + \frac{1}{2} \sk.
+\end{split}
+\end{equation}
+Therefore, composition of two rotations is a rotation about $ \rbr{ \frac{\sqrt{3}}{3}, \frac{\sqrt{3}}{3}, \frac{\sqrt{3}}{3} } $ by $ \frac{2}{3} \spi $.
+\end{thmanswer}
+\end{thmquestion}
+
+\begin{thmquestion}
+\
+\begin{thmanswer}
+By compositing transformations, the model view matrix should be
+\begin{equation}
+\mathbf{T} \rbr{\mathbf{disp}} \mathbf{R}_y \rbr{\mathit{yaw}} \mathbf{R}_x \rbr{\mathit{pitch}} \mathbf{R}_z \rbr{\mathit{roll}},
+\end{equation}
+where $\mathbf{disp}$ is the displacement vector from the view point to the object.
+\end{thmanswer}
+\end{thmquestion}
+
+\end{document}

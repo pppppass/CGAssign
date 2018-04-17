@@ -24,6 +24,9 @@ For Homework 2:
     - (Extra) `22PyGravity`: codes simulating collisions between several balls considering the gravity, which is more complicated than the previous one.
 3. `23PyMouseMaze`: codes for an interactive maze game. Size of the maze, say `N` and `M` should be given in comand line arguments. An example to invoke this program is `./main.py 10 10`. Use `w` and `s` to pull the mouse forwards and backwards, and use `a` and `d` to turn it counter-clock-wise and clock-wise respectively. The maze generation algorithm is slightly different from `13PyMaze`.
 
+For Homework 3:
+1. `30Report`: LaTeX source codes and .pdf files of the report of Homework 3. Note that some symbolic calculations are carried in `Problem1.ipynb`, which needs SymPy and Jupyter Notebook to run.
+
 ## Guide to Python source files
 
 The Python source files are all directly executable. That is, they can be directly invoked by `./main.py`.
@@ -38,6 +41,8 @@ To establish a environment, please follow the following instructions:
 7. Install packages by `pip install PyOpenGl PyOpenGL-accelerate`.
 8. Change the directory and directly run the Python programs by `./main.py`.
 If an Anaconda environment has already been established, the first two steps can be left out.
+
+To install SymPy and Jupyter Notebook, (which are intended for verification of symbolic results and are not required), one may use `conda install jupyter sympy`.
 
 ## Guide to C++ source files
 
