@@ -7,7 +7,7 @@
 
 \documentclass[english, nochinese]{../textmpls/pkupaper}
 
-\usepackage[paper]{../textmpls/def}
+\usepackage[paper, upgreek]{../textmpls/def}
 \usepackage{lipsum}
 
 \newcommand{\cuniversity}{Peking University}
@@ -98,11 +98,11 @@ In conclusion, different order of transformations (with some transformations mod
 \msbr{ \mathbf{I} & \mathbf{x} \\ & 1 } \msbr{ \widetilde{\mathbf{R}} & 0 \\ & 1 } = \msbr{ \widetilde{\mathbf{R}} & 0 \\ & 1 } \msbr{ \mathbf{I} & \widetilde{\mathbf{R}}^{-1} \mathbf{x} \\ & 1 }, \\
 \msbr{ \mathbf{I} & \mathbf{x} \\ & 1 } \msbr{ \widetilde{\mathbf{S}} & 0 \\ & 1 } = \msbr{ \widetilde{\mathbf{S}} & 0 \\ & 1 } \msbr{ \mathbf{I} & \widetilde{\mathbf{S}}^{-1} \mathbf{x} \\ & 1 }, \\
 \end{gather}
-therefore rotation, and scaling as well, may be exchangable with a translation (with some modification to the trnaslation). Therefore, compositions $ \mathbf{T} \mathbf{R} \mathbf{S} $, $ \mathbf{R} \mathbf{T} \mathbf{S} $ and $ \mathbf{R} \mathbf{S} \mathbf{T} $ have identical ranges. Moreover, $ \mathbf{T} \mathbf{S} \mathbf{R} $, $ \mathbf{S} \mathbf{T} \mathbf{R} $ and $ \mathbf{S} \mathbf{R} \mathbf{T} $ also have identical ranges. Note that the principle sub-matrix of size 3 of these two classes are $ \widetilde{\mathbf{R}} \widetilde{\mathbf{S}} $ and $ \widetilde{\mathbf{S}} \widetilde{\mathbf{R}} $ respectively. If we have
+therefore rotation, and scaling as well, may be exchangable with a translation (with some modification to the trnaslation). Therefore, compositions $ \mathbf{T} \mathbf{R} \mathbf{S} $, $ \mathbf{R} \mathbf{T} \mathbf{S} $ and $ \mathbf{R} \mathbf{S} \mathbf{T} $ have identical ranges. Moreover, $ \mathbf{T} \mathbf{S} \mathbf{R} $, $ \mathbf{S} \mathbf{T} \mathbf{R} $ and $ \mathbf{S} \mathbf{R} \mathbf{T} $ also have identical ranges. Note that the $ 3 \times 3 $ principle sub-matrix  of these two classes are $ \widetilde{\mathbf{R}} \widetilde{\mathbf{S}} $ and $ \widetilde{\mathbf{S}} \widetilde{\mathbf{R}} $ respectively. If we have
 \begin{equation} \label{Eq:Exc}
-\mathbf{P} \mathbf{D} = \mathbf{E} \mathbf{Q} ,
+\mathbf{P} \mathbf{D} = \mathbf{E} \mathbf{Q}, \mathbf{P} \mathbf{D} \mathbf{Q}^{\rmut} = \mathbf{E},
 \end{equation}
-where $\mathbf{P}$, $\mathbf{Q}$ are orthogonal and $\mathbf{D}$, $\mathbf{E}$ are diagonal, then using the uniqueness of singular value decomposition yields that absolute values of diagonal entries of $\mathbf{D}$ coincides that of $\mathbf{E}$ and that $ \mathbf{P}, \mathbf{Q} \neq \mathbf{I} $ iff $\mathbf{D}$ have repeated entries regardless of signs. Therefore, for most cases, \eqref{Eq:Exc} cannot be established for most cases except the one mentioned above, which means ranges of the two class do not coincide.)
+where $\mathbf{P}$, $\mathbf{Q}$ are orthogonal and $\mathbf{D}$, $\mathbf{E}$ are diagonal, then using the uniqueness of singular value decomposition yields that absolute values of diagonal entries of $\mathbf{D}$ coincides that of $\mathbf{E}$ and that $ \mathbf{P}, \mathbf{Q} \neq \mathbf{I} $ iff $\mathbf{D}$ have repeated entries regardless of signs. Therefore, for most cases, \eqref{Eq:Exc} cannot be established for most cases except the one mentioned above, which means ranges of the two class do not coincide. In conclusion, a instance transformation can be achieved by $ \mathbf{T} \mathbf{R} \mathbf{S} $, $ \mathbf{R} \mathbf{T} \mathbf{S} $ and $ \mathbf{R} \mathbf{S} \mathbf{T} $ but not (always) by $ \mathbf{T} \mathbf{S} \mathbf{R} $, $ \mathbf{S} \mathbf{T} \mathbf{R} $ and $ \mathbf{S} \mathbf{R} \mathbf{T} $.)
 \end{thmanswer}
 \end{thmquestion}
 
@@ -121,7 +121,10 @@ q_x q_y &= \rbr{ \frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2} \si } \rbr{ \frac{\sqrt
 &= \frac{1}{2} + \frac{1}{2} \si + \frac{1}{2} \sj + \frac{1}{2} \sk.
 \end{split}
 \end{equation}
-Therefore, composition of two rotations is a rotation about $ \rbr{ \frac{\sqrt{3}}{3}, \frac{\sqrt{3}}{3}, \frac{\sqrt{3}}{3} } $ by $ \frac{2}{3} \spi $.
+Therefore, composition of two rotations is a rotation about $ \rbr{ \frac{\sqrt{3}}{3}, \frac{\sqrt{3}}{3}, \frac{\sqrt{3}}{3} } $ by $ \frac{2}{3} \spi $. Moreover,
+\begin{equation}
+q_y q_x = \frac{1}{2} + \frac{1}{2} \si + \frac{1}{2} \sj - \frac{1}{2} \sk.
+\end{equation}
 \end{thmanswer}
 \end{thmquestion}
 
