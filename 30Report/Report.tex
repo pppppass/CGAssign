@@ -92,6 +92,17 @@ Since $\mathbf{R}$ and $\mathbf{S}$ are invertible and so are $\widetilde{\mathb
 then $\mathbf{T}'$ is a appropriate translation matrix and \eqref{Eq:Equ} is satisfied.
 
 In conclusion, different order of transformations (with some transformations modified) may yield the same result.
+
+(More precisely, because
+\begin{gather}
+\msbr{ \mathbf{I} & \mathbf{x} \\ & 1 } \msbr{ \widetilde{\mathbf{R}} & 0 \\ & 1 } = \msbr{ \widetilde{\mathbf{R}} & 0 \\ & 1 } \msbr{ \mathbf{I} & \widetilde{\mathbf{R}}^{-1} \mathbf{x} \\ & 1 }, \\
+\msbr{ \mathbf{I} & \mathbf{x} \\ & 1 } \msbr{ \widetilde{\mathbf{S}} & 0 \\ & 1 } = \msbr{ \widetilde{\mathbf{S}} & 0 \\ & 1 } \msbr{ \mathbf{I} & \widetilde{\mathbf{S}}^{-1} \mathbf{x} \\ & 1 }, \\
+\end{gather}
+therefore rotation, and scaling as well, may be exchangable with a translation (with some modification to the trnaslation). Therefore, compositions $ \mathbf{T} \mathbf{R} \mathbf{S} $, $ \mathbf{R} \mathbf{T} \mathbf{S} $ and $ \mathbf{R} \mathbf{S} \mathbf{T} $ have identical ranges. Moreover, $ \mathbf{T} \mathbf{S} \mathbf{R} $, $ \mathbf{S} \mathbf{T} \mathbf{R} $ and $ \mathbf{S} \mathbf{R} \mathbf{T} $ also have identical ranges. Note that the principle sub-matrix of size 3 of these two classes are $ \widetilde{\mathbf{R}} \widetilde{\mathbf{S}} $ and $ \widetilde{\mathbf{S}} \widetilde{\mathbf{R}} $ respectively. If we have
+\begin{equation} \label{Eq:Exc}
+\mathbf{P} \mathbf{D} = \mathbf{E} \mathbf{Q} ,
+\end{equation}
+where $\mathbf{P}$, $\mathbf{Q}$ are orthogonal and $\mathbf{D}$, $\mathbf{E}$ are diagonal, then using the uniqueness of singular value decomposition yields that absolute values of diagonal entries of $\mathbf{D}$ coincides that of $\mathbf{E}$ and that $ \mathbf{P}, \mathbf{Q} \neq \mathbf{I} $ iff $\mathbf{D}$ have repeated entries regardless of signs. Therefore, for most cases, \eqref{Eq:Exc} cannot be established for most cases except the one mentioned above, which means ranges of the two class do not coincide.)
 \end{thmanswer}
 \end{thmquestion}
 
