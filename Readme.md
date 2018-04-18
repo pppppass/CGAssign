@@ -25,7 +25,7 @@ For Homework 2:
 3. `23PyMouseMaze`: codes for an interactive maze game. Size of the maze, say `N` and `M` should be given in comand line arguments. An example to invoke this program is `./main.py 10 10`. Use `w` and `s` to pull the mouse forwards and backwards, and use `a` and `d` to turn it counter-clock-wise and clock-wise respectively. The maze generation algorithm is slightly different from `13PyMaze`.
 
 For Homework 3:
-1. `30Report`: LaTeX source codes and .pdf files of the report of Homework 3. Note that some symbolic calculations are carried in `Problem1.ipynb`, which needs SymPy and Jupyter Notebook to run.
+1. `30Report`: LaTeX source codes and .pdf files of the report of Homework 3. Note that some symbolic calculations, which are not necessary, are carried in `Problem1.ipynb`, which needs SymPy and Jupyter Notebook to run.
 
 ## Guide to Python source files
 
