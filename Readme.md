@@ -27,6 +27,15 @@ For Homework 2:
 For Homework 3:
 1. `30Report`: LaTeX source codes and .pdf files of the report of Homework 3. Note that some symbolic calculations are carried in `Problem1.ipynb`, which needs SymPy and Jupyter Notebook to run.
 
+For Homework 4:
+1. `41HalfAngleReport`: LaTeX source codes and .pdf files for Homework 4 Problem 1.
+2. `42Gouraud`: codes for flat shading and Gouraud shading. Iterations of sub-division `N` should be given in command line arguments as `./main.py 2`, which should not ever exceed 6. You may use 1 or 2 to investigate details of different shading methods, and use 5 or 6 to observe global visual effects. You may tap W, A, S and D to move the view point, and tap H, J, N, M to rotate the light source. Ambient, diffuse and specular lights are set to be red, blue and green respectively. Shading methods of the four polyhedra are listed below.
+    - First from left: direct flat shading, where a triangle is colored according to one vertex and the surface normal.
+    - Second from left: interpolated flat shading, where a triangle is colored according to three vertices and the surface normal, with color interpolation.
+    - Third from left: Gouraud shading, where a triangle is colored according to three vertices and approximated (averaged) point normals, with color interpolation.
+    - Fourth from left: interpolated smooth shading using true point normals, where a triangle is colored according to three vertices and true point normals, with color interpolation. This makes advantage of properties of the sphere, normals of which can be directly calculated.
+Note that some strange pattern may occur when `N` is rather large, this is because the subdivision process does not guarantee convexity.
+
 ## Guide to Python source files
 
 The Python source files are all directly executable. That is, they can be directly invoked by `./main.py`.

@@ -46,17 +46,17 @@ def display():
     glClear(GL_COLOR_BUFFER_BIT)
     glClear(GL_DEPTH_BUFFER_BIT)
 
-    glCallList(2)
-
-    glCallList(1)
-
     glMatrixMode(GL_MODELVIEW)
 
     glPushMatrix()
 
     glRotated(angle, 0.0, 0.0, 1.0)
 
+    glCallList(2)
+
     glPopMatrix()
+
+    glCallList(1)
 
     glutSwapBuffers()
 

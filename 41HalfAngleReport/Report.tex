@@ -1,0 +1,66 @@
+% !TeX encoding = UTF-8
+% !TeX program = LuaLaTeX
+% !TeX spellcheck = en_US
+
+% Author : Zhihan Li
+% Description : Report of Assignment 4 Problem 1
+
+\documentclass[english, nochinese]{../textmpls/pkupaper}
+
+\usepackage[paper, tikz]{../textmpls/def}
+
+\newcommand{\cuniversity}{Peking University}
+\newcommand{\cthesisname}{Computer Graphics}
+\newcommand{\titlemark}{Report of Assignment 4 Problem 1}
+
+\DeclareRobustCommand{\authoring}%
+{%
+\begin{tabular}{c}%
+Zhihan Li \\%
+1600010653%
+\end{tabular}%
+}
+
+\title{\titlemark}
+\author{\authoring}
+
+\begin{document}
+
+\maketitle
+
+\begin{thmquestion}
+\ 
+\begin{thmproof}
+The setting is shown in Figure \ref{Fig:Fig}. From reflection law, $\mathbf{r}$, $\mathbf{n}$ and $\mathbf{l}$ lie in the same plane and $ \angle \rbr{ \mathbf{r}, \mathbf{n} } = \angle \rbr{ \mathbf{n}, \mathbf{l} } $. From the definition of $\mathbf{h}$, we know that $\mathbf{v}$, $\mathbf{h}$ and $\mathbf{l}$ lie in the same plane and $ \angle \rbr{ \mathbf{v}, \mathbf{h} } = \angle \rbr{ \mathbf{h}, \mathbf{l} } $.
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+\filldraw (0, 0) circle [radius=2pt] node[below=3mm] {$O$};
+\draw (10:1cm) arc[start angle=10, end angle=40, radius=1cm];
+\draw (25:1.25cm) node {$\varphi$};
+\draw (85:1cm) arc[start angle=85, end angle=100, radius=1cm];
+\draw (92.5:1.5cm) node {$\psi$};
+\draw[->] (0, 0) -- (10:3cm) node[right] {$\mathbf{v}$};
+\draw[->] (0, 0) -- (40:3cm) node[above right] {$\mathbf{r}$};
+\draw[->] (0, 0) -- (85:3cm) node[above] {$\mathbf{h}$};
+\draw[->] (0, 0) -- (100:3cm) node[above] {$\mathbf{n}$};
+\draw[->] (0, 0) -- (160:3cm) node[left] {$\mathbf{l}$};
+\end{tikzpicture}
+\caption{The angles $\phi$ and $\varphi$} \label{Fig:Fig}
+\end{figure}
+
+If $\mathbf{v}$ lies in the plane of $\mathbf{l}$, $\mathbf{n}$ and $\mathbf{r}$, then all the five vectors lie in the same plane. Therefore, we have
+\begin{equation}
+\begin{split}
+\psi &= \angle \rbr{ \mathbf{h}, \mathbf{n} } = \angle \rbr{ \mathbf{h}, \mathbf{l} } - \angle \rbr{ \mathbf{n}, \mathbf{l} } \\
+&= \frac{1}{2} \rbr{ \angle \rbr{ \mathbf{v}, \mathbf{l} } - \angle \rbr{ \mathbf{r}, \mathbf{l} } } \\
+&= \frac{1}{2} \angle \rbr{ \mathbf{v}, \mathbf{r} } = \frac{1}{2} \varphi
+\end{split}
+\end{equation}
+and equivalently $ 2 \psi = \varphi $ as desired.
+
+\sqed
+\end{thmproof}
+\end{thmquestion}
+
+\end{document}
