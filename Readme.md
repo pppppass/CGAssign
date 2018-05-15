@@ -36,6 +36,11 @@ For Homework 4:
     - Fourth from left: interpolated smooth shading using true point normals, where a triangle is colored according to three vertices and true point normals, with color interpolation. This makes advantage of properties of the sphere, normals of which can be directly calculated.
 Note that some strange pattern may occur when `N` is rather large, this is because the subdivision process does not guarantee convexity.
 
+For Homework 5:
+1. `50Report`: LaTeX source codes and .pdf files for Homework 5.
+2. `53LineSegment`: codes drawing a line segment using Bresenham's algorithm. Usage of the program can be seen by executing `./main.py -h`. Note that two endpoints of the line segment are all drawn, and the centers of pixels (emulated) are all integers and a half.
+3. `54Circle`: codes drawing a circle using Bresenham's algorithm. Usage can also be retrieved by `/main.py -h` Centers of pixels (emulated) are all integers and a half.
+
 ## Guide to Python source files
 
 The Python source files are all directly executable. That is, they can be directly invoked by `./main.py`.

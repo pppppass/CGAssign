@@ -1,0 +1,99 @@
+% !TeX encoding = UTF-8
+% !TeX program = LuaLaTeX
+% !TeX spellcheck = en_US
+
+% Author : Zhihan Li
+% Description : Report of Assignment 5
+
+\documentclass[english, nochinese, nobib]{pkupaper}
+
+\usepackage[paper, algorithm, esvect]{def}
+
+\newcommand{\cuniversity}{Peking University}
+\newcommand{\cthesisname}{Computer Graphics}
+\newcommand{\titlemark}{Report of Assignment 5}
+
+\DeclareRobustCommand{\authoring}%
+{%
+\begin{tabular}{c}%
+Zhihan Li \\%
+1600010653%
+\end{tabular}%
+}
+
+\title{\titlemark}
+\author{\authoring}
+
+\begin{document}
+
+\maketitle
+
+\begin{thmquestion}
+\ 
+\begin{thmanswer}
+Direct implementation of such hidden surface removal algorithm always performs $ O \rbr{ n m k } $ times intersection operation, because we have to judge whether a ray intersects with polygons and decide which the intersection to display, which means every pixel-polygon pair must be tested.
+
+However, there are optimization strategies to this algorithm. An approach is to omit unnecessary judgement outside projected polygons. For example, we may use scan line algorithm to find admissable pixels for a polygon on a specific scan line, together with the distance to the camera stored pixel-wise. We may then find the closest polygon for each pixel according to such intervals.
+
+This optimization strategy makes advantage of the sparsity of pixels related to a specific polygon --- most polygon will be small enough and cover only a small fraction of area. Construction of scan lines takes $ O \rbr{ m k } $ time, while finding the closest may take only $ O \rbr{\sume{i}{1}{k}{A_i}} $ if a buffer of length $ O \rbr{n} $ is used to store the partial closest distance, where $A_i$ is the projected area to the screen (image space) of $i$-th polygon.
+
+In real applications, $ \sume{i}{1}{k}{A_i} \sim O \rbr{ m n } $. An important case is that these polygons forms a fine division of a surface. In this case, sum of the projected area is roughly $ C A $, where $A$ is the project area of the surface, and $ C = 2 $ if the surface is convex or slightly larger if not, which means $ \sume{i}{1}{k}{A_i} \approx C A \le C m n = O \rbr{ m n } $. Another case is that some of the polygons go very large and approximately cover the whole screen. However, such polygon could only occur few times, which yields $ O \rbr{ m n } $ also.
+
+In conclusion, $ \sume{i}{1}{k}{A_i} \sim O \rbr{ m n } $ and the overall time complexity is
+\begin{equation}
+O \rbr{ m n } + O \rbr{ m k } = O \rbr{ m n }
+\end{equation}
+if $k$ does not go very large. This explains the constant time complexity.
+\end{thmanswer}
+\end{thmquestion}
+
+\begin{thmquestion}
+\ 
+\begin{thmanswer}
+One explanation of the problem requires to judge whether polygon $P$ lies in a half space split by the plane of planar polygon $Q$. The algorithm is given in Algorithm \ref{Algo:Algo}.
+
+\begin{algorithm}
+\SetAlgoLined
+
+\KwData{List of vertices of planar polygon $P$ ($ P_1, P_2, \cdots, P_n $) and $Q$ ($ Q_1, Q_2, \cdots, Q_m $)}
+\KwResult{Whether $P$ lies in one side of $Q$}
+
+$ \mathbf{n} \slar \vv{ Q_1 Q_2 } \times \vv{ Q_1 Q_3 } $\;
+$ s = \opsgn \vv{ Q_1 P_1 } \cdot \mathbf{n} $\;
+\If{$ s = 0 $}
+{
+    \Return{False}\;
+}
+\For{$i$ from $2$ to $m$}
+{
+    $ s' = \opsgn \vv{ Q_1 P_i } \cdot \mathbf{n} $\;
+    \If{$ s \neq s'$}
+    {
+        \Return{False}\;
+    }
+}
+\Return{True}\;
+
+\caption{Algorithm to check whether $P$ lies in a half space split by the plane of $Q$}
+\label{Algo:Algo}
+\end{algorithm}
+\end{thmanswer}
+\end{thmquestion}
+
+\begin{thmquestion}
+\ 
+\begin{thmanswer}
+The program is given in \verb"53LineSegment/main.py". The initial value of $d$ for different cases is given in the program.
+\end{thmanswer}
+\end{thmquestion}
+
+\begin{thmquestion}
+\ 
+\begin{thmanswer}
+We only have to show one eighth of the circle because augmentation can be done by $ \rbr{ x, y } \mapsto \rbr{ x, -y }, \rbr{ -x, y }, \rbr{ y, x } $ consecutively. We can construct the circle in 270--315$\degree$ because sloop of this interval lies in $ \sbr{ 0, 1 } $.
+
+The program is given in \verb"54Circle/main.py".
+\end{thmanswer}
+\end{thmquestion}
+
+\end{document}
